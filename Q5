@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+
+void reverseString(char input[], char output[]) {
+    int length = strlen(input);
+
+    for (int i = 0; i < length; i++) {
+        output[i] = input[length - i - 1];
+    }
+    output[length] = '\0';
+}
+
+int main() {
+    char input[100], output[100];
+
+    printf("Enter a string to reverse: ");
+    fgets(input, sizeof(input), stdin);
+    input[strcspn(input, "\n")] = '\0';
+
+    reverseString(input, output);
+    printf("Reversed string: %s\n", output);
+
+    return 0;
+}

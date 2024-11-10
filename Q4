@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+float performOperation(int firstNum, int secondNum, char op) {
+    switch (op) {
+        case '+':
+            return firstNum + secondNum;  
+        case '-':
+            return firstNum - secondNum;  
+        case '*':
+            return firstNum * secondNum;  
+        case '/':
+            if (secondNum != 0) {
+                return firstNum / secondNum; 
+            } else {
+                printf("Error! Division by zero.\n");
+                return 0; 
+            }
+        default:
+            printf("Invalid operation!\n");
+            return 0;
+    }
+}
+
+int main() {
+    int firstNum, secondNum;
+    char op;
+    printf("Enter first number: ");
+    scanf("%d", &firstNum);
+    printf("Enter second number: ");
+    scanf("%d", &secondNum);
+
+    printf("Enter operation (+, -, *, /): ");
+    scanf(" %c", &op); 
+    float result = performOperation(firstNum, secondNum, op);
+    if (op == '+' || op == '-' || op == '*' || op == '/') {
+        printf("Result: %.2f\n", result);
+    }
+
+    return 0;
+}
